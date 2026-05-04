@@ -27,7 +27,6 @@ class TistoryPostService:
     async def set_context(self) -> BrowserContext:
         logger.info('set context')
         await self.tistory_browser_service.init_browser(headless=True)
-
         return await self.tistory_browser_service.load_context(self.tistory_context)
 
 
