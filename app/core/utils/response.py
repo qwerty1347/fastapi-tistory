@@ -1,15 +1,14 @@
 from http import HTTPStatus
-
 from fastapi.responses import JSONResponse
 
 
-def success_response(code: int = HTTPStatus.OK, data: dict | None = None) -> JSONResponse:
+def success_response(data: dict | None = None, code: int = HTTPStatus.OK) -> JSONResponse:
     """
     성공 응답을 반환하는 함수
 
     Args:
-        code (int): 성공 응답의 상태 코드. Defaults to 200.
         data (dict | None): 성공 응답의 데이터. Defaults to None.
+        code (int): 성공 응답의 상태 코드. Defaults to 200.
 
     Returns:
         JSONResponse: 성공 응답을 포함하는 FastAPI JSONResponse 객체.
@@ -26,11 +25,7 @@ def success_response(code: int = HTTPStatus.OK, data: dict | None = None) -> JSO
     )
 
 
-def error_response(
-    code: int = HTTPStatus.INTERNAL_SERVER_ERROR,
-    message: str | None = None,
-    errors: list | None = None
-) -> JSONResponse:
+def error_response(code: int = HTTPStatus.INTERNAL_SERVER_ERROR, message: str | None = None, errors: list | None = None) -> JSONResponse:
     """
     오류 응답을 반환하는 함수
 
